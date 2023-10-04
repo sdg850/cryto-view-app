@@ -8,22 +8,22 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "eslint src/ --fix"
-
   },
   "dependencies": {
-    "intersection-observer": "^0.12.2",
     "@typescript-eslint/eslint-plugin": "^6.7.3",
     "@typescript-eslint/eslint-plugin-tslint": "^6.7.3",
     "@typescript-eslint/parser": "^6.7.3",
+    "intersection-observer": "^0.12.2",
+    "next": "13.5.4",
     "prettier": "^3.0.3",
     "react": "^18",
-    "react-dom": "^18",
-    "next": "13.5.4"
+    "react-dom": "^18"
   },
   "devDependencies": {
-     "@types/node": "latest",
+    "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "cypress": "^13.3.0",
     "eslint": "latest",
     "eslint-config-next": "latest",
     "eslint-config-prettier": "^9.0.0",
