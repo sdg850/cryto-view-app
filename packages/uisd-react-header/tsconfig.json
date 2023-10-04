@@ -1,0 +1,16 @@
+{
+  "extends": "../../config/tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "dist"
+  },
+  "include": [
+    "src/**/*",
+    "styles/**/*",
+    "typings/"
+  ],
+  "exclude": [
+    "uisd-react-button/dist",
+    "node_modules"
+  ],
+}

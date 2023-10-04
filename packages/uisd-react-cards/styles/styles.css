@@ -1,0 +1,9 @@
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3,3rem);
+    grid-auto-rows: minmax(1rem, auto);
+    padding: .5rem .75rem;
+    margin: 3px;
+    border: 1px solid black;
+
+}

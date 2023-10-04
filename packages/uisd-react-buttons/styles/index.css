@@ -1,0 +1,96 @@
+.button {
+  font-weight: bold;
+  border-radius: 40px;
+  border: none;
+  margin: .5rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.button:active {
+        transform: scale(1.1);
+        box-shadow: 0 0 10px black;
+        font-weight: bold;
+        font-size: .5rem;
+}
+
+.primary {
+  background: linear-gradient(45deg, rgba(6, 28, 172, 0.6), rgba(11, 67, 220, 0.9)) ;
+  color: rgb(243, 243, 243);
+}
+
+.secondary {
+  background: linear-gradient(45deg, rgba(64, 66, 65, 0.6), rgba(111, 111, 110, 0.9)) ;
+  color: rgb(243, 243, 243);
+}
+
+.success {
+  background: linear-gradient(45deg, rgba(56, 172, 6, 0.6), rgba(211, 221, 14, 0.9)) ;
+  color: rgb(243, 243, 243);
+}
+
+.info {
+  background: linear-gradient(45deg, rgba(49, 62, 162, 0.67), rgba(105, 85, 183, 0.9)) ;
+  color: rgb(243, 243, 243);
+}
+
+.danger {
+  background: linear-gradient(45deg, rgba(163, 21, 21, 0.841), rgba(233, 47, 47, 0.9)) ;
+  color: rgb(243, 243, 243);
+}
+
+.warning {
+  background: linear-gradient(45deg, rgb(175, 209, 53), rgba(211, 221, 14, 0.9)) ;
+  color: rgb(243, 243, 243);
+}
+
+.dark {
+  background: linear-gradient(45deg, rgba(49, 50, 48, 0.6), rgba(79, 80, 77, 0.9)) ;
+  color: rgb(243, 243, 243);
+}
+
+.light {
+  background: linear-gradient(45deg, rgba(231, 233, 231, 0.6), rgba(231, 231, 228, 0.9)) ;
+  color: rgb(33, 31, 31);
+}
+
+.link {
+  background: transparent ;
+  color: rgb(33, 31, 31);
+}
+
+.flex {
+  padding: .5rem 0.75rem;
+  font-size: .5rem;
+  width: fit-content;
+  height: 2rem;
+}
+
+.small {
+  padding: .3rem 0.6rem;
+  font-size: .4rem;
+  width: fit-content;
+  height: 1rem;
+}
+
+.medium {
+  padding: .4rem 0.67rem;
+  font-size: .6rem;
+  width: fit-content;
+  height: 1.5rem;
+}
+
+.large {
+  padding: .3rem 0.75rem;
+  font-size: .8rem;
+  width: fit-content;
+  height: 2rem;
+}
+
+.full-content {
+  padding: .3rem 0.75rem;
+  font-size: .8rem;
+  width: inherit;
+  height: 2.5rem;
+}

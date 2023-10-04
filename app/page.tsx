@@ -1,95 +1,101 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client";
+import React, { createContext, useEffect, useState } from "react";
+import UiForm from "@uicomponents/uisd-react-form/src/UiForm";
+import UiCardList from "@uicomponents/uisd-react-list/src/uisd-react-card-list";
+import type { Dispatch, MouseEventHandler, ReactElement } from "react";
+import UiHeader from "@packages/uisd-react-header/src/UiHeader";
+import styles from "./page.module.css";
+import UiButton from "@packages/uisd-react-buttons/src/uisd-react-button";
+import {
+  UIsdButtonSize,
+  UIsdButtonTheme,
+} from "../packages/uisd-react-buttons/typings/declaration.d.ts";
 
-export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+const URL = "https://api.coinlore.net/api/tickers/";
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+export interface cryptoData {
+  id?: string;
+  symbol?: string;
+  name?: string;
+  nameid?: string;
+  rank?: number;
+  price_usd?: string;
+  percent_change_24h?: string;
+  percent_change_1h?: string;
+  percent_change_7d?: string;
+  market_cap_usd?: string;
+  volume24?: string;
+  volume24_native?: string;
+  csupply?: string;
+  price_btc?: string;
+  tsupply?: string;
+  msupply?: string;
 }
+
+export interface cryptosList {
+  data?: Array<cryptoData>;
+}
+
+export interface ContextProps {
+  cryptos: Array<cryptoData> | null;
+  filterName: string | undefined;
+  setFilterName: Dispatch<React.SetStateAction<string | undefined>>;
+}
+
+export const cryptosContext = createContext<ContextProps>({
+  cryptos: new Array<cryptoData>(),
+  filterName: "",
+  setFilterName: () => undefined,
+});
+
+function Home(): ReactElement {
+  const [filterName, setFilterName] = useState<string>();
+  const [cryptos, setCryptos] = useState<cryptoData[]>([]);
+  const [pagination, setPagination] = useState<number>(1);
+
+  useEffect(() => {
+    fetch(`https://api.coinlore.net/api/tickers/?start=${pagination}&limit=100`)
+      .then((res) => res.json())
+      .then((res) => setCryptos((prevData) => [...prevData, ...res.data]));
+  }, [pagination]);
+
+  const handlePagination: MouseEventHandler<HTMLButtonElement> = (e): void => {
+    setPagination((prev) => prev + 100);
+  };
+
+  const filtercryptosByName = (cryptos: cryptoData[]): cryptoData[] => {
+    if (filterName == undefined) {
+      return [...cryptos];
+    }
+    const filtervalue = cryptos.filter((item) => {
+      return item.name?.toLowerCase().includes(filterName);
+    });
+
+    return filtervalue;
+  };
+
+  return (
+    <cryptosContext.Provider
+      value={{
+        cryptos: filtercryptosByName(cryptos),
+        filterName,
+        setFilterName,
+      }}
+    >
+      <div className={styles.maincontainer}>
+        <UiHeader>{"Crypto View"}</UiHeader>
+        <UiForm />
+        <UiCardList />
+        <UiButton
+          theme={UIsdButtonTheme.SUCCESS}
+          size={UIsdButtonSize.LARGE}
+          onClick={handlePagination}
+        >
+          {"More Cryptos"}
+        </UiButton>
+      </div>
+    </cryptosContext.Provider>
+  );
+}
+
+export default Home;

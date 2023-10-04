@@ -1,0 +1,8 @@
+.searchbar {
+    box-sizing: border-box;
+    border-radius: 40px;
+    padding: .5rem .75rem;
+    margin: .5rem;
+    font-weight: bold;
+
+}
