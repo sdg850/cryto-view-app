@@ -42,7 +42,7 @@ export interface ContextProps {
   setFilterName: Dispatch<React.SetStateAction<string | undefined>>;
 }
 
-export const cryptosContext = createContext<ContextProps>({
+export const CryptosContext = createContext<ContextProps>({
   cryptos: new Array<cryptoData>(),
   filterName: "",
   setFilterName: () => undefined,
@@ -75,7 +75,7 @@ function Home(): ReactElement {
   };
 
   return (
-    <cryptosContext.Provider
+    <CryptosContext.Provider
       value={{
         cryptos: filtercryptosByName(cryptos),
         filterName,
@@ -94,7 +94,7 @@ function Home(): ReactElement {
           {"More Cryptos"}
         </UiButton>
       </div>
-    </cryptosContext.Provider>
+    </CryptosContext.Provider>
   );
 }
 

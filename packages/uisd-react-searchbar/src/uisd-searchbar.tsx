@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import "../styles/index.css";
-import { cryptosContext } from "@app/page";
+import { CryptosContext } from "@app/page";
 import type { searchTypes } from "../typing/declaration.d.ts";
 
 const UiSearchBar = ({ placeHolder }: searchTypes) => {
-  const { filterName, setFilterName } = useContext(cryptosContext);
+  const { filterName, setFilterName } = useContext(CryptosContext);
 
   return (
     <input
