@@ -1,5 +1,5 @@
 import React from "react";
-import { cryptoData } from "@app/page";
+import { cryptoData } from "@providers/crypto-api-provider";
 import "../styles/styles.css";
 import UseLazyLoading from "@packages/uisd-react-lazy-loading/src/uisd-react-lazy-loading";
 
