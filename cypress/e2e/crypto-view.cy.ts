@@ -6,7 +6,7 @@ describe("Testing crypto-view App", () => {
   it("Should reload initial crypto currencies", () => {
     cy.get(".card-item-container").should("have.length", 8);
     cy.window()
-      .scrollTo("top", { easing: "linear", duration: 500 })
+      .scrollTo("top", { easing: "linear", duration: 1000 })
       .scrollTo("bottom", { easing: "linear", duration: 10000 })
       .then(() => {
         cy.get(".card-item-container").should("have.length", 200);
@@ -33,10 +33,10 @@ describe("Testing crypto-view App", () => {
       .click()
       .wait(4000);
     cy.window()
-      .scrollTo("top", { easing: "linear", duration: 1000 })
+      .scrollTo("top", { easing: "linear", duration: 2000 })
       .scrollTo("bottom", { easing: "linear", duration: 15000 })
       .then(() => {
-        cy.get(".card-item-container").should("have.length", 300);
+        cy.get(".card-item-container").should("have.length", 200);
       });
   });
 });

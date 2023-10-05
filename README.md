@@ -23,3 +23,6 @@ Open [http://localhost:3000](http://localhost:3000) to view Crypto-view App
 6. Once complete, the local site should launch, if not, navigate to [http://localhost:3000](http://localhost:3000) to view Crypto-view App
 
 ## Running Cypress testing
+1. Run `npm run dev` in one terminal
+2. run `cypress open` in another terminal
+3. Inside cypress dashboard go to `cypress/e2e` folder > `crypto-view.cy.ts`

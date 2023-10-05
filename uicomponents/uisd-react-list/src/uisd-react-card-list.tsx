@@ -1,5 +1,9 @@
 import React, { useContext } from "react";
-import { CryptosContext, ContextProps, cryptoData } from "@app/page";
+import {
+  CryptosContext,
+  ContextProps,
+  cryptoData,
+} from "@providers/crypto-api-provider";
 import UICardItem from "./uisd-react-card-item";
 
 export default function UiCardList(): JSX.Element {

@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint:fix": "eslint app/ --fix"
+    "lint:fix": "eslint app/ --fix",
+    "test": "npx cypress open --e2e --browser chrome"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^6.7.3",
