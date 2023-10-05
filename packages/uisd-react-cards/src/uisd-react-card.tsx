@@ -1,5 +1,5 @@
 import React from "react";
-import { ICardType } from "../typing/declaration";
+import { ICardType } from "../typing/declaration.ts";
 import "../styles/styles.css";
 
 const UiCard = ({ children }: ICardType) => {

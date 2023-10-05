@@ -1,5 +1,5 @@
 import * as React from "react";
-import { IButtonProps } from "../typings/declaration";
+import { IButtonProps } from "../typings/declaration.ts";
 import "../styles/index.css";
 
 const UiButton = ({

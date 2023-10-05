@@ -1,7 +1,7 @@
 import React from "react";
 import UiSearchBar from "../../../packages/uisd-react-searchbar/src/uisd-searchbar";
 import "../styles/styles.css";
-import { IFormProps } from "../typings/declaration.d.ts";
+import { IFormProps } from "../typings/declaration.ts";
 
 export default function UiForm({ children }: IFormProps) {
   return (
