@@ -9,7 +9,7 @@ const UiButton = ({
   onClick,
 }: IButtonProps): JSX.Element => {
   return (
-    <button className={`button ${theme} ${size}`} onClick={() => onClick()}>
+    <button className={`button ${theme} ${size}`} onClick={() => onClick}>
       {children}
     </button>
   );

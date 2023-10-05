@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../styles/styles.css";
 
-const UseLazyLoading = ({ children }) => {
+const UseLazyLoading = ({ children }: { children: React.ReactNode }) => {
   const [isLazyLoading, setIsLazyLoading] = useState(false);
-  const refElement = useRef(null);
+  const refElement = useRef<HTMLDivElement | null>(null);
 
   useEffect(
     function () {
@@ -19,7 +19,7 @@ const UseLazyLoading = ({ children }) => {
             observer.disconnect();
           }
         });
-        observer.observe(refElement.current);
+        if (refElement.current) observer.observe(refElement.current);
       });
     },
     [refElement]

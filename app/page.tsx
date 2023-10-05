@@ -9,7 +9,7 @@ import UiButton from "@packages/uisd-react-buttons/src/uisd-react-button";
 import {
   UIsdButtonSize,
   UIsdButtonTheme,
-} from "../packages/uisd-react-buttons/typings/declaration.d.ts";
+} from "../packages/uisd-react-buttons/typings/declaration";
 import { CryptoProvider, CryptosContext } from "@providers/crypto-api-provider";
 
 function Home(): ReactElement {
