@@ -10,22 +10,16 @@ import {
   UIsdButtonSize,
   UIsdButtonTheme,
 } from "../packages/uisd-react-buttons/typings/declaration.ts";
-import { CryptoProvider, CryptosContext } from "@providers/crypto-api-provider";
+import { CryptoProvider } from "@providers/crypto-api-provider";
 
 function Home(): ReactElement {
-  const { handlePagination } = useContext(CryptosContext);
-
   return (
     <CryptoProvider>
       <div className={styles.maincontainer}>
         <UiHeader>{"Crypto View"}</UiHeader>
         <UiForm />
         <UiCardList />
-        <UiButton
-          theme={UIsdButtonTheme.SUCCESS}
-          size={UIsdButtonSize.LARGE}
-          onClick={handlePagination}
-        >
+        <UiButton theme={UIsdButtonTheme.SUCCESS} size={UIsdButtonSize.LARGE}>
           {"More Cryptos"}
         </UiButton>
       </div>

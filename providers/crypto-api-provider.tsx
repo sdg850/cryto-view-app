@@ -1,9 +1,4 @@
-import React, {
-  MouseEventHandler,
-  createContext,
-  useEffect,
-  useState,
-} from "react";
+import React, { createContext, useEffect, useState } from "react";
 
 export interface cryptoData {
   id?: string;
@@ -32,7 +27,7 @@ export interface ContextProps {
   cryptos: Array<cryptoData> | null;
   filterName: string | undefined;
   handleFilterName: (value: string) => void;
-  handlePagination: MouseEventHandler<HTMLButtonElement>;
+  handlePagination: () => void;
 }
 
 export const CryptosContext = createContext<ContextProps>({
@@ -57,7 +52,7 @@ export const CryptoProvider = ({ children }: { children: React.ReactNode }) => {
     setFilterName(value);
   };
 
-  const handlePagination: MouseEventHandler<HTMLButtonElement> = (e): void => {
+  const handlePagination = (): void => {
     setPagination((prev) => prev + 100);
   };
 

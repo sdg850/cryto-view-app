@@ -17,12 +17,12 @@ Open [http://localhost:3000](http://localhost:3000) to view Crypto-view App
 # Once your development environment is ready:
 
 1. Clone repo
-   `git clone ...`
+   `git clone https://github.com/sdg850/cryto-view-app.git`
 4. Run `npm i` to install all dependencies.
 5. Run `npm run dev` to start the server
 6. Once complete, the local site should launch, if not, navigate to [http://localhost:3000](http://localhost:3000) to view Crypto-view App
 
 ## Running Cypress testing
 1. Run `npm run dev` in one terminal
-2. run `cypress open` in another terminal
+2. run `npm run test` in another terminal
 3. Inside cypress dashboard go to `cypress/e2e` folder > `crypto-view.cy.ts`

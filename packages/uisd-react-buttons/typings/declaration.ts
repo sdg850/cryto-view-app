@@ -4,7 +4,7 @@ export interface IButtonProps {
   theme: string;
   size: string;
   children?: JSX.Element | string;
-  onClick?: MouseEventHandler<HTMLButtonElement>;
+  onClick?: () => void;
 }
 
 export enum UIsdButtonTheme {

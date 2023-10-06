@@ -36,7 +36,7 @@ describe("Testing crypto-view App", () => {
       .scrollTo("top", { easing: "linear", duration: 2000 })
       .scrollTo("bottom", { easing: "linear", duration: 15000 })
       .then(() => {
-        cy.get(".card-item-container").should("have.length", 200);
+        cy.get(".card-item-container").should("have.length", 300);
       });
   });
 });
